@@ -1,0 +1,53 @@
+%% Viewing the template methods ucosg the MATLAB "Help On Selection" is more powerful, so please try it to get the best practices.
+%
+%% Guidance Notes
+%
+% 1- Don't change the functions accessibility(public, private, static, ...).
+%
+% 2- Don't change the functions names(AssesSignals and AssessmentDescription).
+%
+% 3- Don't remove any returned objects(status, assessment)
+%
+%
+% ** PLEASE MAKE SURE THAT YOUR .M FILE NAME IS THE SAME NAME IN THE "classdef" AS IT MAY INTRODUCE ISSUES.
+%
+% ** IN SENTINEL GUI YOU CAN ASSIGN YOUR GLOBAL ASSESSMENT TO A NUMBER OF TEST-SHEETS 
+%    BY CREATING HARNESS THEN SELECT ANY TEST-SHEET NODE A LIST OF YOUR GLOBAL ASSESSMENTS 
+%    FINALLY, SELECT THE GLOBAL ASSESSMENTS YOU NEED **
+%
+% ---------------------------------------------------------------------------------
+% How to assess your different kinds of signals such as: array, struct and so on.
+% ---------------------------------------------------------------------------------
+%
+% INSIDE THE FUNCTION "AssesSignals(signals, signals_AllValues)" YOU CAN USE THE "signals" ARGUMENT AS THE FOLLOWING TO ACCESS YOUR SIGNALS
+% "signals_AllValues" is used to access all values of signals across all
+% sample times (access old signal values)
+%
+%    1- Current triggered sample-time for this global assessment.
+%       signals('sample_time') % Note: 'sample_time' IS CASE SENESTIVE DO NOT CHANGE IT.
+%
+%
+%    2- Traditional Signal:
+%       signals('Out2')         % To get a traditional signals, just write its name directly.
+%
+%
+%    3- Array Signal:
+%       signals('Arr1(1)')      % You can access index #2 such as signals('Arr1(2)') and so on.
+%
+%
+%    4- Struct Signal:
+%       signals('Out3.BB2')     % For accessing more deeping levels e.g. for accessing struct 'CC1' under the 'BB2' it will be such as.
+%
+%
+%    5- Struct Of Array Signal:
+%       signals('B.BB4.CC1(1)') % You can access index #2 such as signals('B.BB4.CC1(2)') and so on.        
+%
+%
+%    6- Array Of Struct Signal:
+%       signals('B.BB4(1).CC1') % You can access index #2 such as signals('B.BB4(2).CC1') and so on.        
+%
+%    7- Enum Signal:
+%       signals('B.ROOT')       % You can access another enum element such as signals('B.LEVEL') and so on.        
+%
+%
+%%   See also AssesSignals, AssessmentDescription

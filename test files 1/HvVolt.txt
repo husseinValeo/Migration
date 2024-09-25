@@ -1,0 +1,139 @@
+step_1_1 
+
+if (t>=0 && t<=3)
+    verify(hv_volt1_cntr_wrt == 0);
+    verify(hv_volt2_cntr_wrt == 0);
+    verify(hv_volt3_cntr_wrt == 0);
+end
+
+
+
+if (t==4)
+    verify(hv_volt1_cntr_wrt == 1);
+    verify(hv_volt2_cntr_wrt == 0);
+    verify(hv_volt3_cntr_wrt == 0);
+end
+
+if (t==5)
+    verify(hv_volt1_cntr_wrt == 2);
+    verify(hv_volt2_cntr_wrt == 0);
+    verify(hv_volt3_cntr_wrt == 0);
+end
+
+if (t==6)
+    verify(hv_volt1_cntr_wrt == 2);
+    verify(hv_volt2_cntr_wrt == 1);
+    verify(hv_volt3_cntr_wrt == 0);
+end
+
+if (t==7)
+    verify(hv_volt1_cntr_wrt == 2);
+    verify(hv_volt2_cntr_wrt == 2);
+    verify(hv_volt3_cntr_wrt == 0);
+end
+
+if (t==8)
+    verify(hv_volt1_cntr_wrt == 2);
+    verify(hv_volt2_cntr_wrt == 3);
+    verify(hv_volt3_cntr_wrt == 0);
+end
+
+if (t==9)
+    verify(hv_volt1_cntr_wrt == 2);
+    verify(hv_volt2_cntr_wrt == 3);
+    verify(hv_volt3_cntr_wrt == 1);
+end
+
+if (t==10)
+    verify(hv_volt1_cntr_wrt == 2);
+    verify(hv_volt2_cntr_wrt == 3);
+    verify(hv_volt3_cntr_wrt == 2);
+end
+
+if (t==11)
+    verify(hv_volt1_cntr_wrt == 2);
+    verify(hv_volt2_cntr_wrt == 3);
+    verify(hv_volt3_cntr_wrt == 3);
+end
+
+if (t==12)
+    verify(hv_volt1_cntr_wrt == 2);
+    verify(hv_volt2_cntr_wrt == 3);
+    verify(hv_volt3_cntr_wrt == 3);
+end
+
+if (t==13)
+    verify(hv_volt1_cntr_wrt == 2);
+    verify(hv_volt2_cntr_wrt == 3);
+    verify(hv_volt3_cntr_wrt == 4);
+end
+
+if (t==14)
+    verify(hv_volt1_cntr_wrt == 3);
+    verify(hv_volt2_cntr_wrt == 3);
+    verify(hv_volt3_cntr_wrt == 4);
+end
+
+if (t==15)
+    verify(hv_volt1_cntr_wrt == 3);
+    verify(hv_volt2_cntr_wrt == 3);
+    verify(hv_volt3_cntr_wrt == 5);
+end
+
+if (t==16)
+    verify(hv_volt1_cntr_wrt == 3);
+    verify(hv_volt2_cntr_wrt == 3);
+    verify(hv_volt3_cntr_wrt == 5);
+end
+
+if (t==17)
+    verify(hv_volt1_cntr_wrt == 3);
+    verify(hv_volt2_cntr_wrt == 4);
+    verify(hv_volt3_cntr_wrt == 5);
+end
+
+if (t==18)
+    verify(hv_volt1_cntr_wrt == 4);
+    verify(hv_volt2_cntr_wrt == 4);
+    verify(hv_volt3_cntr_wrt == 5);
+end
+
+if (t==19)
+    verify(hv_volt1_cntr_wrt == 5);
+    verify(hv_volt2_cntr_wrt == 4);
+    verify(hv_volt3_cntr_wrt == 5);
+end
+
+if (t==20)
+    verify(hv_volt1_cntr_wrt == 5);
+    verify(hv_volt2_cntr_wrt == 5);
+    verify(hv_volt3_cntr_wrt == 5);
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
