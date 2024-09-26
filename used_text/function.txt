@@ -1,0 +1,2 @@
+
+        function [ status ] = AssesSignals(signals, signals_AllValues, currentWorkingScenarioInfo)

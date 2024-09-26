@@ -1,0 +1,2 @@
+            %signals
+            current_sample_time_val = signals('sample_time');

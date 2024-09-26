@@ -1,0 +1,19 @@
+            %% Function Description Section.
+            function [ assessment ] = AssessmentDescription()
+                %% Function Help
+                %
+                % This function is the responsible for showing your defined assessments desription in GEEDS Testscript > Assessments Sheet
+                % This function is optional for implementing, just write what you know to help others to know what you have done and how to use it in the future.
+                
+                assessment.name                = 'MCDDHMM_PCBTemp global assessment';
+                assessment.prototype           = 'MCDDHMM_PCBTemp_GlobalAssess([status],[assessment])';
+                assessment.description         = 'assess the HMM MCU Spent Time Counter';             
+                assessment.ReqIDs              = 'INV_ETECH_SCD_MCDD_1061#02, INV_ETECH_SCD_MCDD_1161#02';
+                assessment.Scope               = 'global';
+                assessment.PassedMessage       = 'Message to show in case of the global assessments is passed'; %not supported yet 
+                assessment.FailedMessage       = 'Message to show in case of the global assessments is failed'; %not supported yet
+                assessment.NotTriggeredMessage = 'Message to show in case of the global assessments is not triggered'; %not supported yet
+                assessment.limitations         = 'No limitations';
+                assessment.owner               = 'mosama';
+                assessment.supportedVersion    = '5.2.0';
+                assessment.SignalsToReport 	   = {'
