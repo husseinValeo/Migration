@@ -1,0 +1,61 @@
+step_2_1 
+if (t==1)
+    verify(run_cntr_wrt == 0);
+    verify(idle_cntr_wrt == 1);
+    verify(wkp_cntr_wrt == 0);
+end
+
+if (t==2)
+    verify(run_cntr_wrt == 0);
+    verify(idle_cntr_wrt == 2);
+    verify(wkp_cntr_wrt == 1);
+end
+
+if (t==3)
+    verify(run_cntr_wrt == 0);
+    verify(idle_cntr_wrt == 3);
+    verify(wkp_cntr_wrt == 1);
+end
+
+if (t==4)
+    verify(run_cntr_wrt == 0);
+    verify(idle_cntr_wrt == 4);
+    verify(wkp_cntr_wrt == 1);
+end
+
+if (t==5)
+    verify(run_cntr_wrt == 1);
+    verify(idle_cntr_wrt == 4);
+    verify(wkp_cntr_wrt == 1);
+end
+
+if (t==6)
+    verify(run_cntr_wrt == 2);
+    verify(idle_cntr_wrt == 4);
+    verify(wkp_cntr_wrt == 2);
+end
+
+if (t==7)
+    verify(run_cntr_wrt == 3);
+    verify(idle_cntr_wrt == 4);
+    verify(wkp_cntr_wrt == 2);
+end
+
+if (t==8)
+    verify(run_cntr_wrt == 3);
+    verify(idle_cntr_wrt == 4);
+    verify(wkp_cntr_wrt == 2);
+end
+
+if (t==9)
+    verify(run_cntr_wrt == 3);
+    verify(idle_cntr_wrt == 4);
+    verify(wkp_cntr_wrt == 2);
+end
+
+if (t==10)
+    verify(run_cntr_wrt == 3);
+    verify(idle_cntr_wrt == 5);
+    verify(wkp_cntr_wrt == 3);
+end
+

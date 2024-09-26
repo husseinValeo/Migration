@@ -33,11 +33,19 @@ def pattern_extraction(file_path):
         i += 1
     return conditions, if_end_blocks
 def clened_conditions_and_if_end_block(conditions, if_end_block):
-    cleaned_conditions = [condition.replace('(', '').replace(')', '').replace(';', '') for condition in conditions]
+    cleaned_conditions = [condition.replace('(', '').replace(')', '').replace(';', '').replace('t','current_sample_time_val') for condition in conditions]
     cleaned_if_end_block = [[f"MCDDHMM_{line.replace('verify', '').replace('(', '').replace(')', '').replace(';', '')}" for line in block] for block in if_end_block]
     return cleaned_conditions, cleaned_if_end_block
 os.system('cls')
 file_path = input('Enter file path: ')
+
+file_name = file_path.split('\\')[-1]  # Get the last part after the last backslash
+name_without_extension = file_name.split('.')[0]  # Split by '.' and take the first part
+
+# Now name_without_extension contains "HvVolt"
+print(name_without_extension)  # Output: HvVolt
+
+
 conditions,if_end_block=pattern_extraction(file_path)
 conditions_fianl,if_end_block_final=clened_conditions_and_if_end_block(conditions,if_end_block)
 cleaned_if_end_block_final = []
@@ -53,12 +61,12 @@ for block in if_end_block_final:
         cleaned_block.append(line.strip())
     cleaned_if_end_block_final.append(cleaned_block)
 
-print(cleaned_if_end_block_final)
+
 final_cleaned_if_end_block = []
 for block in cleaned_if_end_block_final:
     cleaned_block = [line.replace("MCDDHMM_", "") for line in block]
     final_cleaned_if_end_block.append(cleaned_block)
-print(final_cleaned_if_end_block)
+
 with open('used_text/intro.txt', 'r') as original_file:
     intro_header = original_file.read()
 
@@ -110,7 +118,8 @@ with open('used_text/final.txt', 'r') as copy_file:
 with open("copy_file_path", 'w') as copy_file:
     copy_file.write(intro_header)
     copy_file.write("\n")
-    copy_file.write(class_header)
+    copy_file.write(class_header+" ")
+    copy_file.write("MCDDHMM_"+name_without_extension)
     copy_file.write("\n")
     copy_file.write(method_header)
     copy_file.write("\n")
@@ -120,7 +129,7 @@ with open("copy_file_path", 'w') as copy_file:
     copy_file.write("\n")
 
     for i in range(len(if_end_block_final[0])-1):
-        copy_file.write("            "+cleaned_if_end_block_final[0][i] + " = "+final_cleaned_if_end_block[0][i])
+        copy_file.write("            "+cleaned_if_end_block_final[0][i] + " = signals("+final_cleaned_if_end_block[0][i]+")")
         copy_file.write("\n")
     copy_file.write(if_header)
     copy_file.write("("+conditions_fianl[0]+")")
@@ -171,8 +180,8 @@ with open("copy_file_path", 'w') as copy_file:
     copy_file.write(description_header)
     for i in range(len(if_end_block_final[0])-1):
         copy_file.write(cleaned_if_end_block_final[0][i])
-        if j<len(if_end_block_final[i])-2:
-            copy_file.write(",")
+        if j<len(if_end_block_final[i])-1:
+            copy_file.write(',')
     copy_file.write("'}")
     copy_file.write("\n")
     copy_file.write(final_header)
