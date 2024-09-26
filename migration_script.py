@@ -1,9 +1,5 @@
 import os
 import re
-
-
-
-
 def pattern_extraction(file_path):
     if_word = "if"
     end_word = "end"
@@ -40,17 +36,10 @@ def clened_conditions_and_if_end_block(conditions, if_end_block):
     cleaned_conditions = [condition.replace('(', '').replace(')', '').replace(';', '') for condition in conditions]
     cleaned_if_end_block = [[f"MCDDHMM_{line.replace('verify', '').replace('(', '').replace(')', '').replace(';', '')}" for line in block] for block in if_end_block]
     return cleaned_conditions, cleaned_if_end_block
-
-
 os.system('cls')
 file_path = input('Enter file path: ')
-
-
 conditions,if_end_block=pattern_extraction(file_path)
 conditions_fianl,if_end_block_final=clened_conditions_and_if_end_block(conditions,if_end_block)
-
-
-# Clean the if_end_block to remove "verify", "==", the number after "==", and the brackets
 cleaned_if_end_block_final = []
 for block in if_end_block_final:
     cleaned_block = []
@@ -64,21 +53,12 @@ for block in if_end_block_final:
         cleaned_block.append(line.strip())
     cleaned_if_end_block_final.append(cleaned_block)
 
-# Update the variable to use the cleaned version
 print(cleaned_if_end_block_final)
-
-
-# Clean the cleaned_if_end_block_final variable from the "MCDDHMM_"
 final_cleaned_if_end_block = []
 for block in cleaned_if_end_block_final:
     cleaned_block = [line.replace("MCDDHMM_", "") for line in block]
     final_cleaned_if_end_block.append(cleaned_block)
-
-# Update the variable to use the final cleaned version
 print(final_cleaned_if_end_block)
-
-
-
 with open('used_text/intro.txt', 'r') as original_file:
     intro_header = original_file.read()
 
@@ -126,7 +106,6 @@ with open('used_text/description.txt', 'r') as original_file:
 
 with open('used_text/final.txt', 'r') as copy_file:
     final_header = copy_file.read()
-
 
 with open("copy_file_path", 'w') as copy_file:
     copy_file.write(intro_header)

@@ -59,65 +59,113 @@ class filename
         function [ status ] = AssesSignals(signals, signals_AllValues, currentWorkingScenarioInfo)
             %signals
             current_sample_time_val = signals('sample_time');
-            MCDDHMM_run_cntr_wrt = run_cntr_wrt
-            MCDDHMM_idle_cntr_wrt = idle_cntr_wrt
-            MCDDHMM_wkp_cntr_wrt = wkp_cntr_wrt
-            if(t==1)
-                if (MCDDHMM_run_cntr_wrt == 0 && MCDDHMM_idle_cntr_wrt == 1 && MCDDHMM_wkp_cntr_wrt == 0)
-                    status = AssessmentStatus.PASSED;
-                else
-                    status = AssessmentStatus.FAILED;
-                end
-            elseif(t==2)
-                if (MCDDHMM_run_cntr_wrt == 0 && MCDDHMM_idle_cntr_wrt == 2 && MCDDHMM_wkp_cntr_wrt == 1)
-                    status = AssessmentStatus.PASSED;
-                else
-                    status = AssessmentStatus.FAILED;
-                end
-            elseif(t==3)
-                if (MCDDHMM_run_cntr_wrt == 0 && MCDDHMM_idle_cntr_wrt == 3 && MCDDHMM_wkp_cntr_wrt == 1)
+            MCDDHMM_hv_volt1_cntr_wrt = hv_volt1_cntr_wrt
+            MCDDHMM_hv_volt2_cntr_wrt = hv_volt2_cntr_wrt
+            MCDDHMM_hv_volt3_cntr_wrt = hv_volt3_cntr_wrt
+            if(t>=0 && t<=3)
+                if (MCDDHMM_hv_volt1_cntr_wrt == 0 && MCDDHMM_hv_volt2_cntr_wrt == 0 && MCDDHMM_hv_volt3_cntr_wrt == 0)
                     status = AssessmentStatus.PASSED;
                 else
                     status = AssessmentStatus.FAILED;
                 end
             elseif(t==4)
-                if (MCDDHMM_run_cntr_wrt == 0 && MCDDHMM_idle_cntr_wrt == 4 && MCDDHMM_wkp_cntr_wrt == 1)
+                if (MCDDHMM_hv_volt1_cntr_wrt == 1 && MCDDHMM_hv_volt2_cntr_wrt == 0 && MCDDHMM_hv_volt3_cntr_wrt == 0)
                     status = AssessmentStatus.PASSED;
                 else
                     status = AssessmentStatus.FAILED;
                 end
             elseif(t==5)
-                if (MCDDHMM_run_cntr_wrt == 1 && MCDDHMM_idle_cntr_wrt == 4 && MCDDHMM_wkp_cntr_wrt == 1)
+                if (MCDDHMM_hv_volt1_cntr_wrt == 2 && MCDDHMM_hv_volt2_cntr_wrt == 0 && MCDDHMM_hv_volt3_cntr_wrt == 0)
                     status = AssessmentStatus.PASSED;
                 else
                     status = AssessmentStatus.FAILED;
                 end
             elseif(t==6)
-                if (MCDDHMM_run_cntr_wrt == 2 && MCDDHMM_idle_cntr_wrt == 4 && MCDDHMM_wkp_cntr_wrt == 2)
+                if (MCDDHMM_hv_volt1_cntr_wrt == 2 && MCDDHMM_hv_volt2_cntr_wrt == 1 && MCDDHMM_hv_volt3_cntr_wrt == 0)
                     status = AssessmentStatus.PASSED;
                 else
                     status = AssessmentStatus.FAILED;
                 end
             elseif(t==7)
-                if (MCDDHMM_run_cntr_wrt == 3 && MCDDHMM_idle_cntr_wrt == 4 && MCDDHMM_wkp_cntr_wrt == 2)
+                if (MCDDHMM_hv_volt1_cntr_wrt == 2 && MCDDHMM_hv_volt2_cntr_wrt == 2 && MCDDHMM_hv_volt3_cntr_wrt == 0)
                     status = AssessmentStatus.PASSED;
                 else
                     status = AssessmentStatus.FAILED;
                 end
             elseif(t==8)
-                if (MCDDHMM_run_cntr_wrt == 3 && MCDDHMM_idle_cntr_wrt == 4 && MCDDHMM_wkp_cntr_wrt == 2)
+                if (MCDDHMM_hv_volt1_cntr_wrt == 2 && MCDDHMM_hv_volt2_cntr_wrt == 3 && MCDDHMM_hv_volt3_cntr_wrt == 0)
                     status = AssessmentStatus.PASSED;
                 else
                     status = AssessmentStatus.FAILED;
                 end
             elseif(t==9)
-                if (MCDDHMM_run_cntr_wrt == 3 && MCDDHMM_idle_cntr_wrt == 4 && MCDDHMM_wkp_cntr_wrt == 2)
+                if (MCDDHMM_hv_volt1_cntr_wrt == 2 && MCDDHMM_hv_volt2_cntr_wrt == 3 && MCDDHMM_hv_volt3_cntr_wrt == 1)
                     status = AssessmentStatus.PASSED;
                 else
                     status = AssessmentStatus.FAILED;
                 end
             elseif(t==10)
-                if (MCDDHMM_run_cntr_wrt == 3 && MCDDHMM_idle_cntr_wrt == 5 && MCDDHMM_wkp_cntr_wrt == 3)
+                if (MCDDHMM_hv_volt1_cntr_wrt == 2 && MCDDHMM_hv_volt2_cntr_wrt == 3 && MCDDHMM_hv_volt3_cntr_wrt == 2)
+                    status = AssessmentStatus.PASSED;
+                else
+                    status = AssessmentStatus.FAILED;
+                end
+            elseif(t==11)
+                if (MCDDHMM_hv_volt1_cntr_wrt == 2 && MCDDHMM_hv_volt2_cntr_wrt == 3 && MCDDHMM_hv_volt3_cntr_wrt == 3)
+                    status = AssessmentStatus.PASSED;
+                else
+                    status = AssessmentStatus.FAILED;
+                end
+            elseif(t==12)
+                if (MCDDHMM_hv_volt1_cntr_wrt == 2 && MCDDHMM_hv_volt2_cntr_wrt == 3 && MCDDHMM_hv_volt3_cntr_wrt == 3)
+                    status = AssessmentStatus.PASSED;
+                else
+                    status = AssessmentStatus.FAILED;
+                end
+            elseif(t==13)
+                if (MCDDHMM_hv_volt1_cntr_wrt == 2 && MCDDHMM_hv_volt2_cntr_wrt == 3 && MCDDHMM_hv_volt3_cntr_wrt == 4)
+                    status = AssessmentStatus.PASSED;
+                else
+                    status = AssessmentStatus.FAILED;
+                end
+            elseif(t==14)
+                if (MCDDHMM_hv_volt1_cntr_wrt == 3 && MCDDHMM_hv_volt2_cntr_wrt == 3 && MCDDHMM_hv_volt3_cntr_wrt == 4)
+                    status = AssessmentStatus.PASSED;
+                else
+                    status = AssessmentStatus.FAILED;
+                end
+            elseif(t==15)
+                if (MCDDHMM_hv_volt1_cntr_wrt == 3 && MCDDHMM_hv_volt2_cntr_wrt == 3 && MCDDHMM_hv_volt3_cntr_wrt == 5)
+                    status = AssessmentStatus.PASSED;
+                else
+                    status = AssessmentStatus.FAILED;
+                end
+            elseif(t==16)
+                if (MCDDHMM_hv_volt1_cntr_wrt == 3 && MCDDHMM_hv_volt2_cntr_wrt == 3 && MCDDHMM_hv_volt3_cntr_wrt == 5)
+                    status = AssessmentStatus.PASSED;
+                else
+                    status = AssessmentStatus.FAILED;
+                end
+            elseif(t==17)
+                if (MCDDHMM_hv_volt1_cntr_wrt == 3 && MCDDHMM_hv_volt2_cntr_wrt == 4 && MCDDHMM_hv_volt3_cntr_wrt == 5)
+                    status = AssessmentStatus.PASSED;
+                else
+                    status = AssessmentStatus.FAILED;
+                end
+            elseif(t==18)
+                if (MCDDHMM_hv_volt1_cntr_wrt == 4 && MCDDHMM_hv_volt2_cntr_wrt == 4 && MCDDHMM_hv_volt3_cntr_wrt == 5)
+                    status = AssessmentStatus.PASSED;
+                else
+                    status = AssessmentStatus.FAILED;
+                end
+            elseif(t==19)
+                if (MCDDHMM_hv_volt1_cntr_wrt == 5 && MCDDHMM_hv_volt2_cntr_wrt == 4 && MCDDHMM_hv_volt3_cntr_wrt == 5)
+                    status = AssessmentStatus.PASSED;
+                else
+                    status = AssessmentStatus.FAILED;
+                end
+            elseif(t==20)
+                if (MCDDHMM_hv_volt1_cntr_wrt == 5 && MCDDHMM_hv_volt2_cntr_wrt == 5 && MCDDHMM_hv_volt3_cntr_wrt == 5)
                     status = AssessmentStatus.PASSED;
                 else
                     status = AssessmentStatus.FAILED;
@@ -143,7 +191,7 @@ class filename
                 assessment.limitations         = 'No limitations';
                 assessment.owner               = 'mosama';
                 assessment.supportedVersion    = '5.2.0';
-                assessment.SignalsToReport 	   = {'MCDDHMM_run_cntr_wrtMCDDHMM_idle_cntr_wrtMCDDHMM_wkp_cntr_wrt'}
+                assessment.SignalsToReport 	   = {'MCDDHMM_hv_volt1_cntr_wrtMCDDHMM_hv_volt2_cntr_wrtMCDDHMM_hv_volt3_cntr_wrt'}
             %	assessment.TimeTolerance	   = 0.01;            
         end
     end
