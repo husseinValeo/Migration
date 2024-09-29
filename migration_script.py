@@ -41,9 +41,11 @@ file_path = input('Enter file path: ')
 
 file_name = file_path.split('\\')[-1]  # Get the last part after the last backslash
 name_without_extension = file_name.split('.')[0]  # Split by '.' and take the first part
+path_without_file_name = '\\'.join(file_path.split('\\')[:-1])  # Join all parts except the last one
 
-# Now name_without_extension contains "HvVolt"
-print(name_without_extension)  # Output: HvVolt
+output_file_name = "MCDDHMM_" + name_without_extension + "_GlobalAssess"
+output_file_path = os.path.join(path_without_file_name, output_file_name)
+
 
 
 conditions,if_end_block=pattern_extraction(file_path)
@@ -115,10 +117,10 @@ with open('used_text/description.txt', 'r') as original_file:
 with open('used_text/final.txt', 'r') as copy_file:
     final_header = copy_file.read()
 
-with open("copy_file_path", 'w') as copy_file:
+with open(output_file_path, 'w') as copy_file:
     copy_file.write(intro_header)
     copy_file.write("\n")
-    copy_file.write(class_header+" ")
+    copy_file.write(class_header)
     copy_file.write("MCDDHMM_"+name_without_extension)
     copy_file.write("\n")
     copy_file.write(method_header)
@@ -187,3 +189,19 @@ with open("copy_file_path", 'w') as copy_file:
     copy_file.write(final_header)
 
     
+
+
+# Define the original file path and the new extension
+new_extension = '.m'
+
+# Split the file name and its extension
+file_name, file_extension = os.path.splitext(output_file_name)
+
+# Create the new file path with the new extension
+new_file_path = os.path.join(path_without_file_name, file_name + new_extension)
+
+# Rename the file
+os.rename(output_file_path, new_file_path)
+
+print(f"File renamed to: {new_file_path}")
+
