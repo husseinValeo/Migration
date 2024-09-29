@@ -121,7 +121,7 @@ with open(output_file_path, 'w') as copy_file:
     copy_file.write(intro_header)
     copy_file.write("\n")
     copy_file.write(class_header)
-    copy_file.write("MCDDHMM_"+name_without_extension)
+    copy_file.write(output_file_name)
     copy_file.write("\n")
     copy_file.write(method_header)
     copy_file.write("\n")
