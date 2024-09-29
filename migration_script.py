@@ -182,7 +182,7 @@ with open(output_file_path, 'w') as copy_file:
     copy_file.write(description_header)
     for i in range(len(if_end_block_final[0])-1):
         copy_file.write(cleaned_if_end_block_final[0][i])
-        if j<len(if_end_block_final[i])-1:
+        if i<len(if_end_block_final[i])-2:
             copy_file.write(',')
     copy_file.write("'}")
     copy_file.write("\n")
